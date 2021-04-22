@@ -36,7 +36,7 @@ const findLongestWord = (words) => {
 // Calculating a Sum
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(numbers) {
+const sumArray = (numbers) => {
   let sum = 0;
   if (numbers.length < 1) {
     return sum;
@@ -52,7 +52,7 @@ function sumArray(numbers) {
 // Calculate the Average
 let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {
+const averageNumbers = (numbersAvg) => {
   let sum = 0;
   if (numbersAvg.length === 0) {
     return;
@@ -197,7 +197,6 @@ let matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
 
 const greatestProduct = (matrix) => {
   let resultHorizontal = getResultHorizontal(matrix);
