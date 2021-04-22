@@ -204,32 +204,54 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {
-  let countOne = true;
-  let countTwo = true;
 
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] === 1) {
-        countOne = true;
-      } else {
-        countOne = false;
+const greatestProduct = (matrix) => {
+  let resultHorizontal = getResultHorizontal(matrix);
+  let resultVertical = getResultVertical(matrix);
+  if(resultHorizontal > resultVertical){
+    return resultHorizontal;
+  }
+  return resultVertical;
+}
+
+const getResultHorizontal = (matrix) => {
+  let result = 1;  
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length - 3; j++){
+      let count = 0;
+      let actualJ = j;
+      let sum = 1;
+      
+      while( count < 4){
+        sum *= matrix[i][actualJ];
+        actualJ++;
+        count++;
       }
-
-      if (matrix[i][j] === 2) {
-        countTwo = true;
-      } else {
-        countTwo = false;
+      if(sum > result){
+        result = sum;
       }
     }
   }
+  return result;
+}
 
-  if (countOne) {
-    return 1;
+const getResultVertical = (matrix) => {
+let result = 1;  
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length - 3; j++){
+      let count = 0;
+      let actualJ = j;
+      let sum = 1;
+      
+      while( count < 4){
+        sum *= matrix[actualJ][i];
+        actualJ++;
+        count++;
+      }
+      if(sum > result){
+        result = sum;
+      }
+    }
   }
-
-  if (countTwo) {
-    return 16;
-  }
-
+  return result;
 }
