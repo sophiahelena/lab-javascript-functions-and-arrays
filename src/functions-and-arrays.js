@@ -1,5 +1,5 @@
 // Find the maximum
-function maxOfTwoNumbers(num1, num2) {
+const maxOfTwoNumbers = (num1, num2) => {
   if (num1 > num2) {
     return num1;
   } else {
@@ -8,7 +8,7 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 // Finding Longest Word
-var words = [
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -18,8 +18,7 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(words) {
-
+const findLongestWord = (words) => {
   if (words.length < 1) {
     return undefined;
   } else {
@@ -35,7 +34,7 @@ function findLongestWord(words) {
 }
 
 // Calculating a Sum
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(numbers) {
   let sum = 0;
@@ -47,29 +46,26 @@ function sumArray(numbers) {
     }
     return sum;
   }
-
 }
 
 
 // Calculate the Average
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
   let sum = 0;
-
   if (numbersAvg.length === 0) {
     return;
   } else {
     for (let i = 0; i < numbersAvg.length; i++) {
       sum += numbersAvg[i];
     }
-
     return sum / numbersAvg.length;
   }
 }
 
 // Array of Strings
-var wordsArr = [
+let wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -82,7 +78,7 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(wordsArr) {
+const averageWordLength = (wordsArr) => {
   let sum = 0;
   if (wordsArr.length === 0) {
     return;
@@ -95,7 +91,7 @@ function averageWordLength(wordsArr) {
 }
 
 // Unique Arrays
-var wordsUnique = [
+let wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -109,7 +105,7 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
+const uniquifyArray = (wordsUnique) => {
   let arrayUnique = [];
   if (wordsUnique.length === 0) {
     return;
@@ -123,9 +119,8 @@ function uniquifyArray(wordsUnique) {
   return arrayUnique;
 }
 
-
 // Finding Elements
-var wordsFind = [
+let wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -136,7 +131,7 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist(wordsFind, word) {
+const doesWordExist = (wordsFind, word) => {
   let existsInArray = false;
   if (wordsFind.length === 0) {
     return false;
@@ -151,7 +146,7 @@ function doesWordExist(wordsFind, word) {
 }
 
 // Counting Repetion
-var wordsCount = [
+let wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -165,7 +160,7 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount, wordsFind) {
+const howManyTimes = (wordsCount, wordsFind) => {
   let totalRepetitions = 0;
   if (wordsCount.length === 0) {
     return false;
@@ -179,9 +174,8 @@ function howManyTimes(wordsCount, wordsFind) {
   return totalRepetitions;
 }
 
-
 // Bonus Quest
-var matrix = [
+let matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -208,26 +202,26 @@ var matrix = [
 const greatestProduct = (matrix) => {
   let resultHorizontal = getResultHorizontal(matrix);
   let resultVertical = getResultVertical(matrix);
-  if(resultHorizontal > resultVertical){
+  if (resultHorizontal > resultVertical) {
     return resultHorizontal;
   }
   return resultVertical;
 }
 
 const getResultHorizontal = (matrix) => {
-  let result = 1;  
-  for(let i = 0; i < matrix.length; i++){
-    for(let j = 0; j < matrix[i].length - 3; j++){
+  let result = 1;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
       let count = 0;
       let actualJ = j;
       let sum = 1;
-      
-      while( count < 4){
+
+      while (count < 4) {
         sum *= matrix[i][actualJ];
         actualJ++;
         count++;
       }
-      if(sum > result){
+      if (sum > result) {
         result = sum;
       }
     }
@@ -236,19 +230,19 @@ const getResultHorizontal = (matrix) => {
 }
 
 const getResultVertical = (matrix) => {
-let result = 1;  
-  for(let i = 0; i < matrix.length; i++){
-    for(let j = 0; j < matrix[i].length - 3; j++){
+  let result = 1;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
       let count = 0;
       let actualJ = j;
       let sum = 1;
-      
-      while( count < 4){
+
+      while (count < 4) {
         sum *= matrix[actualJ][i];
         actualJ++;
         count++;
       }
-      if(sum > result){
+      if (sum > result) {
         result = sum;
       }
     }
